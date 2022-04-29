@@ -143,4 +143,17 @@ public:
 	* @param Rate This is a normalized rate, i.e. 1.0 means 100% of desired look up/down rate
 	*/
 	void LookUpAtRate(float Rate);
+
+	bool bLMBDown;
+	void LMBDown();
+	void LMBUp();
+
+	UPROPERTY(EditDefaultsOnly, BlueprintReadOnly, Category="Items")
+	class AWeapon* EquippedWeapon;
+	UPROPERTY(VisibleAnywhere, BlueprintReadOnly, Category="Items")
+	class AItem* ActiveOverlappingItem;
+
+	void SetEquippedWeapon(AWeapon* WeaponToSet);
+	FORCEINLINE AWeapon* GetEquippedWeapon() { return EquippedWeapon;}
+	FORCEINLINE void SetActiveOverlappingItem(AItem* Item) {ActiveOverlappingItem = Item;}
 };
